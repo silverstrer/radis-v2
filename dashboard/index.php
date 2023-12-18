@@ -37,7 +37,7 @@
 
     <header class="main-header">
       <!-- Logo -->
-      <a href="index2.html" class="logo"><b>RADIS</b> v 2.0</a>
+      <a href="index.php" class="logo"><b>RADIS</b> v 2.0</a>
       <!-- Header Navbar: style can be found in header.less -->
       <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
@@ -112,13 +112,28 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
           <li class="header">MAIN NAVIGATION</li>
-          <li class=" active treeview">
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-tasks"></i> <span>Setup</span>
+              <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="index.php?page=semester"><i class="fa fa-circle-o"></i> Semester</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Mata Pelajaran</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Data Guru</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Data Kelas</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Data Ekstrakurikuler</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Akun</a></li>
+            </ul>
+          </li>
+          <li class="treeview">
             <a href="#">
               <i class="fa fa-folder"></i> <span>Examples</span>
               <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-              <li><a href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
+              <li><a class href="pages/examples/invoice.html"><i class="fa fa-circle-o"></i> Invoice</a></li>
               <li><a href="pages/examples/login.html"><i class="fa fa-circle-o"></i> Login</a></li>
               <li><a href="pages/examples/register.html"><i class="fa fa-circle-o"></i> Register</a></li>
               <li><a href="pages/examples/lockscreen.html"><i class="fa fa-circle-o"></i> Lockscreen</a></li>
@@ -132,94 +147,7 @@
       <!-- /.sidebar -->
     </aside>
 
-    <!-- Right side column. Contains the navbar and content of the page -->
-    <div class="content-wrapper">
-      <!-- Content Header (Page header) -->
-      <section class="content-header">
-        <h1>
-          Dashboard
-          <small>Version 2.0</small>
-        </h1>
-        <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active">Dashboard</li>
-        </ol>
-      </section>
-
-      <!-- Main content -->
-      <section class="content">
-        <!-- Info boxes -->
-        <div class="row">
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-text">CPU Traffic</span>
-                <span class="info-box-number">90<small>%</small></span>
-              </div><!-- /.info-box-content -->
-            </div><!-- /.info-box -->
-          </div><!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-red"><i class="fa fa-google-plus"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-text">Likes</span>
-                <span class="info-box-number">41,410</span>
-              </div><!-- /.info-box-content -->
-            </div><!-- /.info-box -->
-          </div><!-- /.col -->
-
-          <!-- fix for small devices only -->
-          <div class="clearfix visible-sm-block"></div>
-
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-text">Sales</span>
-                <span class="info-box-number">760</span>
-              </div><!-- /.info-box-content -->
-            </div><!-- /.info-box -->
-          </div><!-- /.col -->
-          <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
-              <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
-              <div class="info-box-content">
-                <span class="info-box-text">New Members</span>
-                <span class="info-box-number">2,000</span>
-              </div><!-- /.info-box-content -->
-            </div><!-- /.info-box -->
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-
-        <div class="row">
-          <div class="col-md-12">
-            <div class="box">
-              <div class="box-header with-border">
-                <h3 class="box-title">Monthly Recap Report</h3>
-                <div class="box-tools pull-right">
-                  <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                  <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
-              </div><!-- /.box-header -->
-              <div class="box-body">
-                <div class="row">
-                  <div class="col-md-12">
-                    <p class="text-center">
-                      <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
-                    </p>
-                    <div class="chart-responsive">
-                      <!-- Sales Chart Canvas -->
-                      <canvas id="salesChart" height="180"></canvas>
-                    </div><!-- /.chart-responsive -->
-                  </div><!-- /.col -->
-                </div><!-- /.row -->
-              </div><!-- ./box-body -->
-            </div><!-- /.box -->
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
+    <?php include "../conf/page.php"; ?>
 
     <footer class="main-footer">
       <div class="pull-right hidden-xs">
@@ -254,11 +182,28 @@
   <!-- ChartJS 1.0.1 -->
   <script src="../plugins/chartjs/Chart.min.js" type="text/javascript"></script>
 
-  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-  <script src="dist/js/pages/dashboard2.js" type="text/javascript"></script>
+  <!-- DATA TABES SCRIPT -->
+  <script src="../plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+  <script src="../plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>
+  <!-- SlimScroll -->
+  <script src="../plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+  <!-- FastClick -->
+  <script src='../plugins/fastclick/fastclick.min.js'></script>
+  <!-- page script -->
+  <script type="text/javascript">
+    $(function() {
+      $("#example1").dataTable();
+      $('#example2').dataTable({
+        "bPaginate": true,
+        "bLengthChange": false,
+        "bFilter": false,
+        "bSort": true,
+        "bInfo": true,
+        "bAutoWidth": false
+      });
+    });
+  </script>
 
-  <!-- AdminLTE for demo purposes -->
-  <script src="dist/js/demo.js" type="text/javascript"></script>
 </body>
 
 </html>
