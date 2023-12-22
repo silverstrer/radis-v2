@@ -26,26 +26,31 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label for="namasekolah">Nama Sekolah</label>
+                                        <input type="text" class="form-control" id="namasekolah" name="namasekolah">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="namakepsek">Nama Kepala Sekolah</label>
+                                        <input type="text" class="form-control" id="namakepsek" name="namakepsek">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nipkepsek">NIP Kepala Sekolah</label>
+                                        <input type="text" class="form-control" id="nipkepsek" name="nipkepsek">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
                                         <label for="tahunpelajaran">Tahun Pelajaran</label>
                                         <input type="text" class="form-control" id="tahunpelajaran" name="tahun" placeholder="contoh: 2023/2024">
                                     </div>
                                     <div class="form-group">
                                         <label for="semester">Semester</label>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="semester" id="ganjil" value="Ganjil">
-                                                Ganjil
-                                            </label>
-                                        </div>
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="semester" id="genap" value="Genap">
-                                                Genap
-                                            </label>
-                                        </div>
+                                        <select class="form-control" id="semester" name="semester">
+                                            <option value="">PILIH SEMESTER:</option>
+                                            <option value="Ganjil">Ganjil</option>
+                                            <option value="Genap">Genap</option>
+                                        </select>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="titimangsa">Titi mangsa</label>
                                         <input type="text" class="form-control" id="titimangsa" placeholder="contoh: Tangerang, 1 Juli 2023" name="titimangsa">
@@ -70,6 +75,8 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Nama Sekolah</th>
+                                    <th>Nama Kepsek</th>
                                     <th>Tahun Pelajaran</th>
                                     <th>Semester</th>
                                     <th>Titimangsa</th>
@@ -85,6 +92,8 @@
                                 ?>
                                     <tr>
                                         <td><?php echo $no = $no + 1; ?></td>
+                                        <td><?php echo $row['namasekolah']; ?></td>
+                                        <td><?php echo $row['namakepsek']; ?></td>
                                         <td><?php echo $row['tahun']; ?></td>
                                         <td><?php echo $row['semester']; ?></td>
                                         <td><?php echo $row['titimangsa']; ?></td>
@@ -103,6 +112,19 @@
                                                                 <div class="box-body">
                                                                     <div class="row">
                                                                         <div class="col-md-12">
+                                                                            <div class="form-group">
+                                                                                <label for="namasekolah">Nama Sekolah</label>
+                                                                                <input type="text" class="form-control" id="namasekolah" name="namasekolah" value="<?php echo $row['namasekolah']; ?>">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="namakepsek">Nama Kepala Sekolah</label>
+                                                                                <input type="text" class="form-control" id="namakepsek" name="namakepsek" value="<?php echo $row['namakepsek']; ?>">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="nipkepsek">NIP Kepsek</label>
+                                                                                <input type="text" class="form-control" id="nipkepsek" name="nipkepsek" value="<?php echo $row['nipkepsek']; ?>">
+                                                                            </div>
+                                                                            <br>
                                                                             <div class="form-group">
                                                                                 <label for="tahunpelajaran">Tahun Pelajaran</label>
                                                                                 <input type="text" class="form-control" id="tahunpelajaran" name="tahun" placeholder="contoh: 2023/2024" value="<?php echo $row['tahun']; ?>">
