@@ -13,6 +13,9 @@ if (isset($_GET['page'])) {
     case 'kelas':
       include '../dashboard/kelas.php';
       break;
+    case 'ekskul':
+      include '../dashboard/ekskul.php';
+      break;
   }
 } else {
   include "../dashboard/beranda.php";

@@ -121,9 +121,9 @@
               <li><a href="index.php?page=semester"><i class="fa fa-circle-o"></i> Data Semester</a></li>
               <li><a href="index.php?page=kelas"><i class="fa fa-circle-o"></i> Data Kelas</a></li>
               <li><a href="index.php?page=pelajaran"><i class="fa fa-circle-o"></i> Data Mata Pelajaran</a></li>
+              <li><a href="index.php?page=ekskul"><i class="fa fa-circle-o"></i> Data Ekstrakurikuler</a></li>
               <li><a href="#"><i class="fa fa-circle-o"></i> Data Guru</a></li>
               <li><a href="#"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Data Ekstrakurikuler</a></li>
               <li><a href="#"><i class="fa fa-circle-o"></i> Akun</a></li>
             </ul>
           </li>
