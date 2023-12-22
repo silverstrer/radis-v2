@@ -22,12 +22,28 @@
                     </div><!-- /.box-header -->
                     <!-- form start -->
                     <form role="form" method="post" action="../conf/proses-tambahpelajaran.php">
+                        <?php
+                        include "../conf/conn.php";
+                        $no = 0;
+                        $query_kelas = mysqli_query($link, 'SELECT * FROM kelas;');
+                        ?>
                         <div class="box-body">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label for="pelajaran">Mata Pelajaran</label>
                                         <input type="text" class="form-control" id="pelajaran" name="pelajaran">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="kelas">Kelas</label>
+                                        <select class="form-control" id="kelas" name="IDkelas">
+                                            <option value="">PILIH KELAS:</option>
+                                            <?php while ($row_kelas = mysqli_fetch_array($query_kelas)) { ?>
+                                                <option value="<?php echo $row_kelas['IDkelas']; ?>"><?php echo $row_kelas['kelas']; ?></option>
+                                            <?php } ?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -50,54 +66,59 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Mata Pelajaran</th>
+                                    <th>Kelas</th>
                                     <th colspan="6">Kompetensi Dasar</th>
                                     <th>Opsi</th>
-                                </tr>
-                                <tr>
-                                    <th rowspan="2"></th>
-                                    <th rowspan="2"></th>
-                                    <th>KD 1</th>
-                                    <th>KD 2</th>
-                                    <th>KD 3</th>
-                                    <th>KD 4</th>
-                                    <th>KD 5</th>
-                                    <th>KD 6</th>
-                                    <th rowspan="2"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
                                 include_once "../conf/conn.php";
                                 $no = 0;
-                                $query = mysqli_query($link, 'SELECT * FROM pelajaran ORDER BY IDpelajaran');
+                                $query = mysqli_query($link, 'SELECT *
+                                FROM kelas
+                                INNER JOIN pelajaran ON kelas.IDkelas=pelajaran.IDkelas;');
                                 while ($row = mysqli_fetch_array($query)) {
                                 ?>
                                     <tr>
                                         <td><?php echo $no = $no + 1; ?></td>
                                         <td><?php echo $row['namapelajaran']; ?></td>
+                                        <td><?php echo $row['kelas']; ?></td>
                                         <td>
-                                            <div class="form-group">
-                                                <input type="checkbox" class="flat-red" <?php if ($row['kd1'] !== "") {echo "checked";}  ?> disabled />
+                                            <div class="form-group">(1)
+                                                <input type="checkbox" class="flat-red" <?php if ($row['kd1'] !== "") {
+                                                                                            echo "checked";
+                                                                                        }  ?> disabled />
                                         </td>
                                         <td>
-                                            <div class="form-group">
-                                                <input type="checkbox" class="flat-red" <?php if ($row['kd2'] !== "") {echo "checked";}  ?> disabled />
+                                            <div class="form-group">(2)
+                                                <input type="checkbox" class="flat-red" <?php if ($row['kd2'] !== "") {
+                                                                                            echo "checked";
+                                                                                        }  ?> disabled />
                                         </td>
                                         <td>
-                                            <div class="form-group">
-                                                <input type="checkbox" class="flat-red" <?php if ($row['kd3'] !== "") {echo "checked";}  ?> disabled />
+                                            <div class="form-group">(3)
+                                                <input type="checkbox" class="flat-red" <?php if ($row['kd3'] !== "") {
+                                                                                            echo "checked";
+                                                                                        }  ?> disabled />
                                         </td>
                                         <td>
-                                            <div class="form-group">
-                                                <input type="checkbox" class="flat-red" <?php if ($row['kd4'] !== "") {echo "checked";}  ?> disabled />
+                                            <div class="form-group">(4)
+                                                <input type="checkbox" class="flat-red" <?php if ($row['kd4'] !== "") {
+                                                                                            echo "checked";
+                                                                                        }  ?> disabled />
                                         </td>
                                         <td>
-                                            <div class="form-group">
-                                                <input type="checkbox" class="flat-red" <?php if ($row['kd5'] !== "") {echo "checked";}  ?> disabled />
+                                            <div class="form-group">(5)
+                                                <input type="checkbox" class="flat-red" <?php if ($row['kd5'] !== "") {
+                                                                                            echo "checked";
+                                                                                        }  ?> disabled />
                                         </td>
                                         <td>
-                                            <div class="form-group">
-                                                <input type="checkbox" class="flat-red" <?php if ($row['kd6'] !== "") {echo "checked";}  ?> disabled />
+                                            <div class="form-group">(6)
+                                                <input type="checkbox" class="flat-red" <?php if ($row['kd6'] !== "") {
+                                                                                            echo "checked";
+                                                                                        }  ?> disabled />
                                         </td>
 
                                         <td>
@@ -118,6 +139,24 @@
                                                                             <div class="form-group">
                                                                                 <label for="pelajaran">Mata Pelajaran</label>
                                                                                 <input type="text" class="form-control" id="pelajaran" name="namapelajaran" value="<?php echo $row['namapelajaran']; ?>">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="kelas">Kelas</label>
+                                                                                <?php
+                                                                                include "../conf/conn.php";
+                                                                                $no = 0;
+                                                                                $query_kelas = mysqli_query($link, 'SELECT * FROM kelas;');
+                                                                                ?>
+                                                                                <select class="form-control" id="kelas" name="IDkelas">
+
+                                                                                    <!-- DEFAULT ANSWER -->
+                                                                                    <option default value="<?php echo $row['IDkelas']; ?>"><?php echo $row['kelas']; ?></option>
+                                                                                    <!-- DEFAULT ANSWER -->
+
+                                                                                    <?php while ($row_kelas = mysqli_fetch_array($query_kelas)) { ?>
+                                                                                        <option value="<?php echo $row_kelas['IDkelas']; ?>"><?php echo $row_kelas['kelas']; ?></option>
+                                                                                    <?php } ?>
+                                                                                </select>
                                                                             </div>
                                                                             <div class="form-group">
                                                                                 <label for="kd1">Kompetensi Dasar 1</label>

@@ -10,6 +10,9 @@ if (isset($_GET['page'])) {
     case 'pelajaran':
       include '../dashboard/pelajaran.php';
       break;
+    case 'kelas':
+      include '../dashboard/kelas.php';
+      break;
   }
 } else {
   include "../dashboard/beranda.php";
