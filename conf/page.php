@@ -7,6 +7,9 @@ if (isset($_GET['page'])) {
     case 'semester':
       include '../dashboard/semester.php';
       break;
+    case 'pelajaran':
+      include '../dashboard/pelajaran.php';
+      break;
   }
 } else {
   include "../dashboard/beranda.php";
