@@ -3,7 +3,7 @@ include "../conf/veriflogin.php";
 include "conn.php";
 
 // cek apakah tombol simpan sudah diklik atau blum?
-if (isset($_POST['simpan'])) {
+if (isset($_POST['ubah'])) {
     $id = $_POST['IDsemester'];
     $tahun = $_POST['tahun'];
     $semester = $_POST['semester'];

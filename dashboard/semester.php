@@ -89,7 +89,7 @@
                                         <td><?php echo $row['semester']; ?></td>
                                         <td><?php echo $row['titimangsa']; ?></td>
                                         <td>
-                                            <a href="" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal<?php echo $row['IDsemester']; ?>">Edit</a>
+                                            <a href="" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal<?php echo $row['IDsemester']; ?>">Ubah</a>
                                             <!-- MODAL POP UP -->
                                             <div class="modal fade" id="modal<?php echo $row['IDsemester']; ?>">
                                                 <div class="modal-dialog">
@@ -127,7 +127,7 @@
                                                                 </div><!-- /.box-body -->
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
-                                                                    <button type="submit" class="btn btn-primary" name="simpan">Simpan Perubahan</button>
+                                                                    <button type="submit" class="btn btn-primary" name="ubah">Simpan Perubahan</button>
                                                                 </div>
                                                             </form>
                                                         </div>
