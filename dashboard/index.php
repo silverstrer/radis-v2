@@ -118,8 +118,8 @@
               <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-              <li><a href="index.php?page=semester"><i class="fa fa-circle-o"></i> Semester</a></li>
-              <li><a href="index.php?page=pelajaran"><i class="fa fa-circle-o"></i> Mata Pelajaran</a></li>
+              <li><a href="index.php?page=semester"><i class="fa fa-circle-o"></i> Data Semester</a></li>
+              <li><a href="index.php?page=pelajaran"><i class="fa fa-circle-o"></i> Data Mata Pelajaran</a></li>
               <li><a href="#"><i class="fa fa-circle-o"></i> Data Guru</a></li>
               <li><a href="#"><i class="fa fa-circle-o"></i> Data Kelas</a></li>
               <li><a href="#"><i class="fa fa-circle-o"></i> Data Siswa</a></li>

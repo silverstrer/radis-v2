@@ -50,7 +50,19 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Mata Pelajaran</th>
+                                    <th colspan="6">Kompetensi Dasar</th>
                                     <th>Opsi</th>
+                                </tr>
+                                <tr>
+                                    <th rowspan="2"></th>
+                                    <th rowspan="2"></th>
+                                    <th>KD 1</th>
+                                    <th>KD 2</th>
+                                    <th>KD 3</th>
+                                    <th>KD 4</th>
+                                    <th>KD 5</th>
+                                    <th>KD 6</th>
+                                    <th rowspan="2"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -64,14 +76,39 @@
                                         <td><?php echo $no = $no + 1; ?></td>
                                         <td><?php echo $row['namapelajaran']; ?></td>
                                         <td>
-                                            <a href="" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal<?php echo $row['IDpelajaran']; ?>">Ubah</a>
+                                            <div class="form-group">
+                                                <input type="checkbox" class="flat-red" <?php if ($row['kd1'] !== "") {echo "checked";}  ?> disabled />
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="checkbox" class="flat-red" <?php if ($row['kd2'] !== "") {echo "checked";}  ?> disabled />
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="checkbox" class="flat-red" <?php if ($row['kd3'] !== "") {echo "checked";}  ?> disabled />
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="checkbox" class="flat-red" <?php if ($row['kd4'] !== "") {echo "checked";}  ?> disabled />
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="checkbox" class="flat-red" <?php if ($row['kd5'] !== "") {echo "checked";}  ?> disabled />
+                                        </td>
+                                        <td>
+                                            <div class="form-group">
+                                                <input type="checkbox" class="flat-red" <?php if ($row['kd6'] !== "") {echo "checked";}  ?> disabled />
+                                        </td>
+
+                                        <td>
+                                            <a href="" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal<?php echo $row['IDpelajaran']; ?>">Detail</a>
                                             <!-- MODAL POP UP -->
                                             <div class="modal fade" id="modal<?php echo $row['IDpelajaran']; ?>">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                            <h4 class="modal-title">Ubah Data</h4>
+                                                            <h4 class="modal-title">Detail Mata Pelajaran</h4>
                                                         </div>
                                                         <div class="modal-body">
                                                             <form role="form" method="post" action="../conf/ubah-pelajaran.php">
@@ -81,6 +118,30 @@
                                                                             <div class="form-group">
                                                                                 <label for="pelajaran">Mata Pelajaran</label>
                                                                                 <input type="text" class="form-control" id="pelajaran" name="namapelajaran" value="<?php echo $row['namapelajaran']; ?>">
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="kd1">Kompetensi Dasar 1</label>
+                                                                                <textarea cols="60" rows="4" id="kd1" name="kd1" maxlength="255"><?php echo $row['kd1']; ?></textarea>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="kd2">Kompetensi Dasar 2</label>
+                                                                                <textarea cols="60" rows="4" id="kd2" name="kd2" maxlength="255"><?php echo $row['kd2']; ?></textarea>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="kd3">Kompetensi Dasar 3</label>
+                                                                                <textarea cols="60" rows="4" id="kd3" name="kd3" maxlength="255"><?php echo $row['kd3']; ?></textarea>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="kd4">Kompetensi Dasar 4</label>
+                                                                                <textarea cols="60" rows="4" id="kd4" name="kd4" maxlength="255"><?php echo $row['kd4']; ?></textarea>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="kd5">Kompetensi Dasar 5</label>
+                                                                                <textarea cols="60" rows="4" id="kd5" name="kd5" maxlength="255"><?php echo $row['kd5']; ?></textarea>
+                                                                            </div>
+                                                                            <div class="form-group">
+                                                                                <label for="kd6">Kompetensi Dasar 6</label>
+                                                                                <textarea cols="60" rows="4" id="kd6" name="kd6" maxlength="255"><?php echo $row['kd6']; ?></textarea>
                                                                             </div>
                                                                         </div>
                                                                     </div>
