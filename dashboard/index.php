@@ -114,7 +114,19 @@
           <li class="header">MAIN NAVIGATION</li>
           <li class="treeview">
             <a href="#">
-              <i class="fa fa-tasks"></i> <span>Setup</span>
+              <i class="fa fa-database"></i> <span>Data Pokok</span>
+              <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="#"><i class="fa fa-circle-o"></i> Data Sekolah</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Data Guru</a></li>
+              <li><a href="index.php?page=datasiswa"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Akun</a></li>
+            </ul>
+          </li>
+          <li class="treeview">
+            <a href="#">
+              <i class="fa fa-tasks"></i> <span>Setup Raport</span>
               <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
@@ -122,9 +134,6 @@
               <li><a href="index.php?page=kelas"><i class="fa fa-circle-o"></i> Data Kelas</a></li>
               <li><a href="index.php?page=pelajaran"><i class="fa fa-circle-o"></i> Data Mata Pelajaran</a></li>
               <li><a href="index.php?page=ekskul"><i class="fa fa-circle-o"></i> Data Ekstrakurikuler</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Data Guru</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Data Siswa</a></li>
-              <li><a href="#"><i class="fa fa-circle-o"></i> Akun</a></li>
             </ul>
           </li>
           <li class="treeview">
@@ -190,9 +199,15 @@
   <!-- FastClick -->
   <script src='../plugins/fastclick/fastclick.min.js'></script>
   <!-- page script -->
+
+  <!-- DATATABLE SCRIPT -->
   <script type="text/javascript">
     $(function() {
       $("#example1").dataTable();
+      $("#example1a").dataTable();
+      $("#example1b").dataTable();
+      $("#example1c").dataTable();
+      $("#example1d").dataTable();
       $('#example2').dataTable({
         "bPaginate": true,
         "bLengthChange": false,

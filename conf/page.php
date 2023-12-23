@@ -16,6 +16,9 @@ if (isset($_GET['page'])) {
     case 'ekskul':
       include '../dashboard/ekskul.php';
       break;
+    case 'datasiswa':
+      include '../dashboard/datasiswa.php';
+      break;
   }
 } else {
   include "../dashboard/beranda.php";

@@ -85,40 +85,22 @@
                                         <td><?php echo $row['namapelajaran']; ?></td>
                                         <td><?php echo $row['kelas']; ?></td>
                                         <td>
-                                            <div class="form-group">(1)
-                                                <input type="checkbox" class="flat-red" <?php if ($row['kd1'] !== "") {
-                                                                                            echo "checked";
-                                                                                        }  ?> disabled />
+                                            <div class="form-group">(1) <i class="<?php echo ($row['kd1'] !== "") ? "fa fa-check-square-o text-primary":"fa fa-square-o"; ?>" aria-hidden="true"></i>
                                         </td>
                                         <td>
-                                            <div class="form-group">(2)
-                                                <input type="checkbox" class="flat-red" <?php if ($row['kd2'] !== "") {
-                                                                                            echo "checked";
-                                                                                        }  ?> disabled />
+                                            <div class="form-group">(2) <i class="<?php echo ($row['kd2'] !== "") ? "fa fa-check-square-o text-primary":"fa fa-square-o"; ?>" aria-hidden="true"></i>
                                         </td>
                                         <td>
-                                            <div class="form-group">(3)
-                                                <input type="checkbox" class="flat-red" <?php if ($row['kd3'] !== "") {
-                                                                                            echo "checked";
-                                                                                        }  ?> disabled />
+                                            <div class="form-group">(3) <i class="<?php echo ($row['kd3'] !== "") ? "fa fa-check-square-o text-primary":"fa fa-square-o"; ?>" aria-hidden="true"></i>
                                         </td>
                                         <td>
-                                            <div class="form-group">(4)
-                                                <input type="checkbox" class="flat-red" <?php if ($row['kd4'] !== "") {
-                                                                                            echo "checked";
-                                                                                        }  ?> disabled />
+                                            <div class="form-group">(4) <i class="<?php echo ($row['kd4'] !== "") ? "fa fa-check-square-o text-primary":"fa fa-square-o"; ?>" aria-hidden="true"></i>
                                         </td>
                                         <td>
-                                            <div class="form-group">(5)
-                                                <input type="checkbox" class="flat-red" <?php if ($row['kd5'] !== "") {
-                                                                                            echo "checked";
-                                                                                        }  ?> disabled />
+                                            <div class="form-group">(5) <i class="<?php echo ($row['kd5'] !== "") ? "fa fa-check-square-o text-primary":"fa fa-square-o"; ?>" aria-hidden="true"></i>
                                         </td>
                                         <td>
-                                            <div class="form-group">(6)
-                                                <input type="checkbox" class="flat-red" <?php if ($row['kd6'] !== "") {
-                                                                                            echo "checked";
-                                                                                        }  ?> disabled />
+                                            <div class="form-group">(6) <i class="<?php echo ($row['kd6'] !== "") ? "fa fa-check-square-o text-primary":"fa fa-square-o"; ?>" aria-hidden="true"></i>
                                         </td>
 
                                         <td>
