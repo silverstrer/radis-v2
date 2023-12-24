@@ -73,6 +73,88 @@
                         <h3 class="box-title"> Data Siswa</h3>
                     </div><!-- /.box-header -->
                     <div class="box-body table-responsive">
+                        <?PHP
+                        $semua_status = 'checked';
+                        $aktif_status = 'unchecked';
+                        $lulus_status = 'unchecked';
+                        $mutasi_status = 'unchecked';
+
+                        if (isset($_POST['Filter'])) {
+                            $selected_radio = $_POST['status'];
+                            if ($selected_radio == 'Aktif') {
+                                $aktif_status = 'checked';
+                            } else if ($selected_radio == 'Lulus') {
+                                $lulus_status = 'checked';
+                            } else if ($selected_radio == 'Mutasi') {
+                                $mutasi_status = 'checked';
+                            } else if ($selected_radio == 'Semua') {
+                                $semua_status = 'checked';
+                            }
+                        }
+
+                        if ($aktif_status == 'checked') {
+                            echo <<<gfg
+                            <script>alert('Data berhasil dipilih!');</script>
+                            <div class="alert alert-info alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <h4><i class="icon fa fa-info"></i> Info!</h4>
+                            Data yang ditampilkan adalah <b> Data Siswa Aktif </b>
+                            </div>
+                            gfg;
+                        } elseif ($lulus_status == 'checked') {
+                            echo <<<gfg
+                            <script>alert('Data berhasil dipilih!');</script>
+                            <div class="alert alert-info alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <h4><i class="icon fa fa-info"></i> Info!</h4>
+                            Data yang ditampilkan adalah <b> Data Siswa Lulus </b>
+                            </div>
+                            gfg;
+                        } elseif ($mutasi_status == 'checked') {
+                            echo <<<gfg
+                            <script>alert('Data berhasil dipilih!');</script>
+                            <div class="alert alert-info alert-dismissable">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            <h4><i class="icon fa fa-info"></i> Info!</h4>
+                            Data yang ditampilkan adalah <b> Data Siswa Mutasi </b>
+                            </div>
+                            gfg;
+                        } elseif ($aktif_status !== 'checked' || $mutasi_status !== 'checked' || $lulus_status !== 'checked') {
+                            echo "Menampilkan data siswa keseluruhan";
+                        }
+                        ?>
+
+                        <style>
+                            input[type="radio"] {
+                                visibility: hidden;
+                                height: 0;
+                                width: 0;
+                            }
+
+                            label {
+                                cursor: pointer;
+                            }
+
+                            input:checked+label {
+                                background: #d2d6de;
+                                padding: 2px 6px;
+                                border-radius: 3px;
+                                margin: 3px 6px;
+                            }
+                        </style>
+
+                        <form action="" method="post">
+
+                            <Input type='Radio' Name='status' value='Semua' id="semua" <?PHP print $semua_status; ?>><label for="semua">Semua</label>
+
+                            <Input type='Radio' Name='status' value='Aktif' id="aktif" <?PHP print $aktif_status; ?>><label for="aktif">Aktif</label>
+
+                            <Input type='Radio' Name='status' value='Lulus' id="lulus" <?PHP print $lulus_status; ?>><label for="lulus">Lulus</label>
+
+                            <Input type='Radio' Name='status' value='Mutasi' id="mutasi" <?PHP print $mutasi_status; ?>><label for="mutasi">Mutasi</label>
+
+                            <button type="submit" class="btn btn-primary" name="Filter"><i class="fa fa-filter" aria-hidden="true"></i> Filter Data</button>
+                        </form>
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -92,7 +174,19 @@
                                 <?php
                                 include_once "../conf/conn.php";
                                 $no = 0;
-                                $query = mysqli_query($link, 'SELECT * FROM datasiswa ORDER BY IDdatasiswa');
+
+                                if ($aktif_status == 'checked') {
+                                    $query = mysqli_query($link, "SELECT * FROM datasiswa WHERE status = 'Aktif'");
+                                } elseif ($lulus_status == 'checked') {
+                                    $query = mysqli_query($link, "SELECT * FROM datasiswa WHERE status = 'Lulus'");
+                                } elseif ($mutasi_status == 'checked') {
+                                    $query = mysqli_query($link, "SELECT * FROM datasiswa
+                                     WHERE status = 'Mutasi'");
+                                } elseif ($aktif_status !== 'checked' || $mutasi_status !== 'checked' || $lulus_status !== 'checked') {
+                                    $query = mysqli_query($link, "SELECT * FROM datasiswa ORDER BY IDdatasiswa");
+                                }
+
+
                                 while ($row = mysqli_fetch_array($query)) {
                                 ?>
                                     <tr>
