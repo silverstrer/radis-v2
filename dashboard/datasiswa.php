@@ -18,53 +18,81 @@
                 <!-- general form elements -->
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Tambah Data Siswa</h3>
+                        <button type="submit" class="btn btn-primary" name="add" data-toggle="modal" data-target="#modaltambahsiswa"><i class="fa fa-plus-square" aria-hidden="true"></i> Tambah Data</button>
+                        <button type="submit" class="btn btn-primary" name="induk"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Buku Induk</button>
+                        <button type="submit" class="btn btn-primary" name="atur"><i class="fa fa-cog" aria-hidden="true"></i> Pengaturan Siswa</button>
+                        <button type="submit" class="btn btn-success" name="export"><i class="fa fa-download" aria-hidden="true"></i> Export Data Siswa</button>
                     </div><!-- /.box-header -->
-                    <!-- form start -->
-                    <form role="form" method="post" action="../conf/proses-tambahsiswa.php">
-                        <div class="box-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="namasekolah">Nama Sekolah</label>
-                                        <input type="text" class="form-control" id="namasekolah" name="namasekolah">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="namakepsek">Nama Kepala Sekolah</label>
-                                        <input type="text" class="form-control" id="namakepsek" name="namakepsek">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nipkepsek">NIP Kepala Sekolah</label>
-                                        <input type="text" class="form-control" id="nipkepsek" name="nipkepsek">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="tahunpelajaran">Tahun Pelajaran</label>
-                                        <input type="text" class="form-control" id="tahunpelajaran" name="tahun" placeholder="contoh: 2023/2024">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="semester">Semester</label>
-                                        <select class="form-control" id="semester" name="semester">
-                                            <option value="">PILIH SEMESTER:</option>
-                                            <option value="Ganjil">Ganjil</option>
-                                            <option value="Genap">Genap</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="titimangsa">Titi mangsa</label>
-                                        <input type="text" class="form-control" id="titimangsa" placeholder="contoh: Tangerang, 1 Juli 2023" name="titimangsa">
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- /.box-body -->
-                        <div class="box-footer">
-
-                            <button type="submit" class="btn btn-primary" name="add"><i class="fa fa-plus-square" aria-hidden="true"></i> Tambah Data</button>
-                        </div>
-                    </form>
+                    <div class="box-header">
+                        <form action="" method="post">
+                            <label for="upload">
+                                <i class="fa fa-upload" aria-hidden="true"></i>
+                                Upload Data<input type="file" name="upload" id="upload">
+                            </label>
+                        </form>
+                    </div>
                 </div><!-- /.box -->
             </div><!--/.col (left) -->
+
+            <!-- MODAL TAMBAH SISWA -->
+            <div class="modal fade" id="modaltambahsiswa">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Tambah Data Siswa</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form role="form" method="post" action="../conf/proses-tambahsiswa.php">
+                                <div class="box-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="namasiswa">Nama Siswa</label>
+                                                <input type="text" class="form-control" id="namasiswa" name="namasiswa" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="kelamin">Jenis Kelamin</label>
+                                                <select class="form-control" id="kelamin" name="kelamin" required>
+                                                    <option value="">PILIH:</option>
+                                                    <option value="Laki-laki">Laki-laki</option>
+                                                    <option value="Perempuan">Perempuan</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tempatlahir">Tempat Lahir</label>
+                                                <input type="text" class="form-control" id="tempatlahir" name="tempatlahir" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tanggallahir">Tanggal Lahir</label>
+                                                <input type="date" class="form-control" id="tanggallahir" name="tanggallahir" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="kelas">Kelas</label>
+                                                <select class="form-control" id="kelas" name="kelas" required>
+                                                    <option value="">PILIH KELAS:</option>
+                                                    <?php
+                                                    include "../conf/conn.php";
+                                                    $query_kelas = mysqli_query($link, 'SELECT * FROM kelas;');
+                                                    while ($row_kelas = mysqli_fetch_array($query_kelas)) { ?>
+                                                        <option value="<?php echo $row_kelas['kelas']; ?>"><?php echo $row_kelas['kelas']; ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" class="form-control" id="IDdatasiswa" name="IDdatasiswa">
+                                </div><!-- /.box-body -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
+                                    <button type="submit" class="btn btn-primary" name="add">Simpan Perubahan</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div><!-- / MODAL TAMBAH SISWA -->
 
             <!-- START CUSTOM TABS -->
             <div class="col-md-12">

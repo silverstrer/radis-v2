@@ -19,6 +19,9 @@ if (isset($_GET['page'])) {
     case 'datasiswa':
       include '../dashboard/datasiswa.php';
       break;
+    case 'profilsiswa':
+      include '../dashboard/profilsiswa.php';
+      break;
   }
 } else {
   include "../dashboard/beranda.php";
